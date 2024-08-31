@@ -8,6 +8,41 @@ from PIL import ImageDraw
 import re
 from torchvision.transforms.v2 import Resize
 
+theme = gr.themes.Default(primary_hue="pink").set(
+    loader_color="#ff48a5",
+    slider_color="#ff48a5",
+    block_radius="None",
+    input_radius="None",
+    container_radius="None",
+    body_background_fill="#222",
+    body_background_fill_dark="#222",
+    block_border_width=2,
+    input_border_width=2,
+    block_background_fill="#444",
+    input_background_fill="#444",
+    block_border_color="#ff48a5",
+    input_border_color="#ff48a5",
+    button_border_width=4,
+    button_primary_background_fill="#ff48a5",
+    button_secondary_background_fill="#ff48a5",
+    button_primary_background_fill_dark=None,
+    button_primary_background_fill_hover="#e03080",
+    button_primary_background_fill_hover_dark=None,
+    button_primary_border_color="#ff48a5",
+    button_primary_border_color_dark="#ff48a5",
+    button_primary_border_color_hover="#ff48a5",
+    button_primary_border_color_hover_dark="#ff48a5",
+    button_secondary_background_fill_dark=None,
+    button_secondary_background_fill_hover="#e03080",
+    button_secondary_background_fill_hover_dark=None,
+    button_secondary_border_color="#ff48a5",
+    button_secondary_border_color_dark="#ff48a5",
+    button_secondary_border_color_hover="#ff48a5",
+    button_secondary_border_color_hover_dark="#ff48a5",
+    button_large_radius="None",
+    button_small_radius="None"
+)
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--cpu", action="store_true")
 args = parser.parse_args()
@@ -82,10 +117,10 @@ def process_answer(img, answer):
     return gr.update(visible=False, value=None)
 
 
-with gr.Blocks() as demo:
+with gr.Blocks(theme=theme) as demo:
     gr.Markdown(
         """
-        # 🌔 moondream
+        # Area 51 Labs 👽
         """
     )
     with gr.Row():
@@ -101,4 +136,4 @@ with gr.Blocks() as demo:
     prompt.submit(answer_question, [img, prompt], output)
     output.change(process_answer, [img, output], ann, show_progress=False)
 
-demo.queue().launch(debug=True)
+demo.queue().launch(share=True, debug=True)
