@@ -9,6 +9,13 @@ import re
 from torchvision.transforms.v2 import Resize
 
 theme = gr.themes.Default(primary_hue="pink").set(
+    body_text_size="20px",
+    input_text_size="20px",
+    block_info_text_size="20px",
+    prose_text_size="40px",
+    button_large_text_size="40px",
+    button_small_text_size="40px",
+    section_header_text_size="40px",
     loader_color="#ff48a5",
     slider_color="#ff48a5",
     block_radius="None",
@@ -23,24 +30,8 @@ theme = gr.themes.Default(primary_hue="pink").set(
     block_border_color="#ff48a5",
     input_border_color="#ff48a5",
     button_border_width=4,
-    button_primary_background_fill="#ff48a5",
-    button_secondary_background_fill="#ff48a5",
-    button_primary_background_fill_dark=None,
-    button_primary_background_fill_hover="#e03080",
-    button_primary_background_fill_hover_dark=None,
-    button_primary_border_color="#ff48a5",
-    button_primary_border_color_dark="#ff48a5",
-    button_primary_border_color_hover="#ff48a5",
-    button_primary_border_color_hover_dark="#ff48a5",
-    button_secondary_background_fill_dark=None,
-    button_secondary_background_fill_hover="#e03080",
-    button_secondary_background_fill_hover_dark=None,
-    button_secondary_border_color="#ff48a5",
-    button_secondary_border_color_dark="#ff48a5",
-    button_secondary_border_color_hover="#ff48a5",
-    button_secondary_border_color_hover_dark="#ff48a5",
     button_large_radius="None",
-    button_small_radius="None"
+    button_small_radius="None",
 )
 
 parser = argparse.ArgumentParser()
